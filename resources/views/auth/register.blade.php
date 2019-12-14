@@ -80,7 +80,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/github') }}" class="btn btn-primary">
+                                <a href="{{ url('/auth/github') }}" class="btn btn-dark">
                                 <i class="fa fa-github"></i>
                                     Sign up With Github
                                 </a>

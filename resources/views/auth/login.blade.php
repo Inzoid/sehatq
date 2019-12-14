@@ -49,6 +49,26 @@
                             </div>
                         </div>
 
+
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Login
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
+                                </a>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <p>Or login with Social Media :</p>
+                        </div>
+                    </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <a href="{{ url('/auth/facebook') }}" class="btn btn-primary">
@@ -60,7 +80,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/google') }}" class="btn btn-primary">
+                                <a href="{{ url('/auth/google') }}" class="btn btn-warning">
                                 <i class="fa fa-google"></i>
                                     Login With Google
                                 </a>
@@ -69,21 +89,9 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/github') }}" class="btn btn-primary">
+                                <a href="{{ url('/auth/github') }}" class="btn btn-dark">
                                 <i class="fa fa-github"></i>
                                     Login With Github
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
                                 </a>
                             </div>
                         </div>
