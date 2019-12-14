@@ -50,6 +50,33 @@
                         </div>
 
                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary">
+                                <i class="fa fa-facebook"></i>
+                                    Login With Facebook
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <a href="{{ url('/auth/google') }}" class="btn btn-primary">
+                                <i class="fa fa-google"></i>
+                                    Login With Google
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <a href="{{ url('/auth/github') }}" class="btn btn-primary">
+                                <i class="fa fa-github"></i>
+                                    Login With Github
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Login
