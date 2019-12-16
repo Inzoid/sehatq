@@ -17,7 +17,38 @@
                     You are logged in!
                 </div>
             </div>
+
+            <div class="row">
+            @foreach ($categories as $item)
+           
+                <div class="col-sm-6">
+                    <div class="card">
+                    <div class="card-body">
+                    <img class="card-img-top" src="{{$item['imageUrl'] }}" width="70">
+                        <h5 class="card-title">{{$item['name']}}</h5>
+                    </div>
+                    </div>
+                </div>           
+            @endforeach
+
+            <div class="card-deck">
+            @foreach ($products as $produk)
+                <div class="card">
+                    <img src="{{$produk['imageUrl'] }}" class="card-img-top" width="400">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ $produk['title']}}</h5>
+                    <p class="card-text">{{ $produk['description']}}.</p>
+                    </div>
+                    <div class="card-footer">
+                    <a href="#" class="btn btn-primary mb-5">Go somewhere</a>
+
+                    </div>
+                </div>
+            @endforeach
+            </div>
         </div>
     </div>
 </div>
 @endsection
+
+
