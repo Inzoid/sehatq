@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-
+use Session;
 
 class HomeController extends Controller
 {
@@ -23,8 +23,8 @@ class HomeController extends Controller
         try {
             $client = new Client;
             $response = $client->get($url)->getBody()->getContents();
-            
             return json_decode($response, true);
+
         } catch (Exception $e) {
             return $e;
         }
@@ -43,6 +43,7 @@ class HomeController extends Controller
 
     public function detail($id)
     {
+        $page_title = 'Detail Product';
         try {
             $product = session('products')->where('id', $id)->first();
             $page_title = $product ? $product['title'] : 'Product not found';
@@ -52,5 +53,32 @@ class HomeController extends Controller
             return $e;
         }
     }
+
+    public function buy($id)
+    {
+        try {
+            $product = session('products')->where('id', $id)->first();
+
+            if ($product) {
+                session()->push('history', $product);
+            }
+            
+            Session::flash('notice', 'Successfully Purchased Product');
+            return redirect()->route('product.history');
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
     
+    public function history()
+    {
+        $page_title = 'History';
+        $history = [];
+
+        if (session('history')) {
+            $history = collect(session('history'));
+        }
+
+        return view('home.history', compact('page_title', 'history'));
+    }
 }

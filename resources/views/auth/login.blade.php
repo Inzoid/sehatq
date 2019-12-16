@@ -1,104 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+<div class="login-area">
+        <div class="container">
+            <div class="login-box ptb--100">
+                <form method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
+                    <div class="login-form-head">
+                        <h4>Log In SehatQ</h4>
+                    </div>
+                    <div class="login-form-body">
+                        <div class="form-gp">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" name="email" id="exampleInputEmail1">
+                            <i class="ti-email"></i>
+                            @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
+                        <div class="form-gp">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input name ="password" type="password" id="exampleInputPassword1">
+                            <i class="ti-lock"></i>
+                            @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
+                        <div class="row mb-4 rmber-area">
+                            <div class="col-6">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="custom-control-input" id="customControlAutosizing">
+                                    <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
                                 </div>
                             </div>
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+                            <div class="col-6 text-right">
+                                <a href="#">Forgot Password?</a>
                             </div>
                         </div>
-
-                    <div class="form-group">
-                        <div class="col-md-8 col-md-offset-4">
-                            <p>Or login with Social Media :</p>
+                        <div class="submit-btn-area">
+                            <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            <div class="login-other row mt-4">
+                                <div class="col-6">
+                                    <a class="btn-primary" href="{{ url('/auth/facebook') }}">Log in with <i class="fa fa-facebook"></i></a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="google-login" href="{{ url('/auth/google') }}">Log in with <i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                            <div class="login-other row mt-4">
+                                    <div class="col-12">
+                                        <center>
+                                        <a class="btn-dark" href="{{ url('/auth/github') }}">Log in with <i class="fa fa-github"></i></a>
+                                        </center>
+                                    </div>
+                            </div>
                         </div>
+                        
                     </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary">
-                                <i class="fa fa-facebook"></i>
-                                    Login With Facebook
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/google') }}" class="btn btn-warning">
-                                <i class="fa fa-google"></i>
-                                    Login With Google
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/github') }}" class="btn btn-dark">
-                                <i class="fa fa-github"></i>
-                                    Login With Github
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection

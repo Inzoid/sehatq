@@ -49,7 +49,7 @@
                                 
                             </li>
                             <li>
-                                <a href="{{route('home')}}" aria-expanded="true"><i class="ti-user"></i><span>Profile</span></a>
+                                <a href="{{route('product.history')}}" aria-expanded="true"><i class="ti-user"></i><span>Profile</span></a>
                                 
                             </li>
                         </ul>

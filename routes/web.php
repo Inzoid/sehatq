@@ -12,12 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
-Route::get('auth/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 Route::get('/detail/{id}', 'HomeController@detail')->name('product.detail');
+Route::get('/buy/{id}', 'HomeController@buy')->name('product.buy');
+Route::get('/history', 'HomeController@history')->name('product.history');
+
+Route::group(['prefix' => 'auth/{provider}'], function(){
+    Route::get('/', 'Auth\SocialiteController@redirectToProvider');
+    Route::get('/callback', 'Auth\SocialiteController@handleProviderCallback');
+});

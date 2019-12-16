@@ -7,8 +7,7 @@
 
           <!-- page title area end -->
           <div class="main-content-inner">
-                      <!-- sales report area start -->
-                          <div class="row">
+            <div class="row">
                 @foreach($categories as $category)
                         <div class="col-md-4">
                             <div class="single-report mb-xs-30">
@@ -32,7 +31,7 @@
         <div class="row no-gutters">
             <div class="col-md-4">
                 <img class="card-img" src="{{$item['imageUrl'] }}" 
-                    width="150">
+                width="150">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -41,4 +40,5 @@
                 </div>
             </div>
         @endforeach
+        
 @endsection
