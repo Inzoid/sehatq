@@ -3,41 +3,47 @@
     <!-- Page content -->
 <div class="container mt-2">
   <div class="main-content">
-      <div class="container">
-
-          <!-- page title area end -->
-          <div class="main-content-inner">
-            <div class="row">
-                @foreach($categories as $category)
-                        <div class="col-md-4">
-                            <div class="single-report mb-xs-30">
-                                <div class="s-report-inner pr--20 pt--30 mb-3">
-                                <img src=" {{ $category['imageUrl'] }}" class="rounded float-left" alt="..." width="60">
-                                    <div class="s-report-title d-flex justify-content-between">
-                                        <br>
-                                        <h4 class="header-title mb-0">{{$category['name']}}</h4>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div> 
-                    @endforeach
-                    </div>
-                </div>
-        <br>
+    <div class="container">
+      <div class="row ml-1 mr-2">
+        <div class="col-8 p-0">
+          <div class="overflow-auto d-flex">
+            @foreach ($categories as $category)
+              <span class="category-badge bg-white shadow-sm rounded text-nowrap d-flex align-items-center mb-1 mx-1 px-2 py-1">
+                <img src="{{ $category['imageUrl'] }}" alt="{{ $category['name'] }}" width="70" class="mr-2" />
+              <p class="text-lowercase"> {{$category['name']}} </p>
+              </span><br><br><br><br>
+            @endforeach
+          </div>
+        </div>
+      </div>
         
     @foreach($products as $item)
-        <div class="card mb-3" style="max-width: 540px;">
+      <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
-            <div class="col-md-4">
-                <img class="card-img" src="{{$item['imageUrl'] }}" 
-                width="150">
-            </div>
-            <div class="col-md-8">
+          <div class="col-md-4">
+            <a href="{{ route('product.detail', $item['id']) }}" class="text-decoration-none">
+              <img class="card-img" src="{{$item['imageUrl'] }}" 
+              width="150">
+            </a>
+          </div>
+
+              <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{$item['title']}}</h5>
+                  <h5 class="card-title">{{$item['title']}}</h5>
                     <a href="{{ route('product.detail', $item['id']) }}" class="btn btn-info">Detail</a>
+                      <?php
+                        if ($item['loved']=='1') {
+                          $class = 'danger';
+                        } else {
+                          $class = 'dark';
+                        }
+                      ?>
+                    <button class="btn btn-{{$class}}">
+                    <i class="fa fa-heart"></i>
+                    </button>
                 </div>
+              </div>
+            <div class="mb-2">
             </div>
         @endforeach
         

@@ -37,7 +37,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="{{route('home')}}"><img src="/assets/images/icon/logo.png" alt="logo"></a>
+                    <a href="{{route('home')}}"><h3>SehatQ</h3></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -72,7 +72,7 @@
                         </div>
                         <div class="search-box pull-left">
                             <form action="#">
-                                <input type="text" name="search" placeholder="Search..." required>
+                                <input type="text" name="search" placeholder="Search..." class="search-text">
                                 <i class="ti-search"></i>
                             </form>
                         </div>
@@ -128,6 +128,14 @@
 
 <!-- offset area end -->
     <!-- jquery latest version -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+    crossorigin="anonymous"></script>
+    <script src="js/custom.js"></script>
     <script src="/assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="/assets/js/popper.min.js"></script>

@@ -22,14 +22,16 @@
 	    @forelse ($history as $product)
         <div class="card border-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">{{$product['title']}}</div>
+	        <a href="{{ route('product.detail', $product['id']) }}" class="text-decoration-none">
             <img class="card-img" src="{{$product['imageUrl'] }}" 
                 width="100">
+          </a>
             <div class="card-body text-primary">
                 <h5 class="card-title">{{$product['price']}}</h5>
             </div>
         </div>
 	    @empty
-	      <div class="col-12">
+	      <div class="col-8">
 	        <h4 class="text-center my-5">You never buy any item.</h4>
 	      </div>
 	    @endforelse
