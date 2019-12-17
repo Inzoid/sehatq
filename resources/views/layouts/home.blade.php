@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/assets/css/default-css.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/css/product.css">
     <!-- modernizr css -->
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -72,7 +73,7 @@
                         </div>
                         <div class="search-box pull-left">
                             <form action="#">
-                                <input type="text" name="search" placeholder="Search..." class="search-text">
+                            <input id="myInput" name="search" type="text" placeholder="Search..">
                                 <i class="ti-search"></i>
                             </form>
                         </div>
@@ -136,6 +137,7 @@
     integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
     crossorigin="anonymous"></script>
     <script src="js/custom.js"></script>
+    <script src="js/search.js"></script>
     <script src="/assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="/assets/js/popper.min.js"></script>

@@ -17,7 +17,7 @@
                       
                    
 
-                    <div class="pull-right mt-4 mr-2 mb-2">
+                    <div class="pull-left mt-3 ml-2 mb-2">
                           <a href="{{route('home')}}" class="btn btn-dark btn-sm">
                            <i class="fa fa-undo "> Back</i>
                           </a>

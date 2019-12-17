@@ -30,8 +30,19 @@ class HomeController extends Controller
         }
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $client = new Client;
+        $url = 'https://private-4639ce-ecommerce56.apiary-mock.com/home';
+        $response = $client->get($url)->getBody()->getContents();
+
+        if ($request->ajax()) {
+            $search = Client::where('title', 'like', '%' . $request->search . '%')->orderBy
+                ('id', 'desc')->paginate(4);
+            $view = (String) view('home.index')->with('search',
+            $search)->render();
+        } 
+
         $page_title = 'Home';
         $url = 'https://private-4639ce-ecommerce56.apiary-mock.com/home';
         $data = $this->getData($url);
@@ -80,5 +91,16 @@ class HomeController extends Controller
         }
 
         return view('home.history', compact('page_title', 'history'));
+    }
+
+    public function search()
+    {
+        $client = new Client;
+        $response = $client->get('https://private-4639ce-ecommerce56.apiary-mock.com/home')->getBody()->getContents();
+        return json_decode($response, true);
+
+        if ($product) {
+            session()->push('item', $item);
+        }
     }
 }

@@ -6,8 +6,13 @@
       <a href="{{ url()->previous() }}" class="btn-back text-dark">
         <i class="mdi mdi-arrow-left mdi-24px"></i>
       </a>
-      <h6 class="mb-0 ml-3">Purchased Products</h6>
-    </div>
+      <h3 class="mb-0 ml-3">Purchased Products</h3>
+        <div class="pull-left mt-3 ml-2 mb-2">
+          <a href="{{route('home')}}" class="btn btn-dark btn-sm">
+            <i class="fa fa-undo "> Back</i>
+           </a>
+        </div>
+      </div>
   </nav>
   <div class="container">
                 @if(session('notice'))
@@ -32,7 +37,8 @@
         </div>
 	    @empty
 	      <div class="col-8">
-	        <h4 class="text-center my-5">You never buy any item.</h4>
+	        <h5 class="text-center my-3">You never buy any item.</h6>
+	        <h4 class="text-center my-5">If you want buy product  <a href="{{route('home')}}">click here</a></h4>          
 	      </div>
 	    @endforelse
 	    <div class="col-8">
