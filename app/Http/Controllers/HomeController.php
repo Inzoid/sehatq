@@ -57,8 +57,6 @@ class HomeController extends Controller
         $page_title = 'Detail Product';
         try {
             $product = session('products')->where('id', $id)->first();
-            $page_title = $product ? $product['title'] : 'Product not found';
-
             return view('home.detail', compact('page_title', 'product'));
         } catch (Exception $e) {
             return $e;
