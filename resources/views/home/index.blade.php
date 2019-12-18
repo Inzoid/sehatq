@@ -4,24 +4,16 @@
 <div class="container mt-2">
   <div class="main-content">
     <div class="container">
-      <div class="row ml-1 mr-2">
-        <div class="col-8 p-0">
-          <div class="overflow-auto d-flex">
+      <div class="col-14 col-md-8 pl-0 pr-0 pl-md-3 pr-md-3 mb-3 pb-2" style="display: flex; overflow: scroll">
             @foreach ($categories as $category)
-            <table>
-              <tr>
-                <td><span class="category-badge bg-white shadow-sm rounded text-nowrap d-flex align-items-center mb-1 mx-1 px-2 py-1">
-                <img src="{{ $category['imageUrl'] }}" alt="{{ $category['name'] }}" width="70" class="mr-2" /></td>
-              </span>
-              </tr>
-              <tr>
-                <td><p class="text-center"> {{$category['name']}} </p></td>
-              </tr>
-              </table><br><br><br><br>
+                <div class="image-container mr-6">
+                    <img src="{{ $category['imageUrl'] }}" alt="{{ $category['name'] }}" width="60" class="mr-2" />
+                    <div style="font-size: 14px; text-align: center;">
+                      {{ $category['name'] }}
+                    </div>
+                </div>
             @endforeach
-          </div>
         </div>
-      </div>
     
     <div class="list_product">
       @include('home.product')
